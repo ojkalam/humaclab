@@ -1,0 +1,42 @@
+/* CSS Document */
+.tab-content {overflow:hidden; }
+
+.slide-left {
+  -webkit-transition: left 0.35s ease;
+  -moz-transition: left 0.35s ease;
+  -ms-transition: left 0.35s ease;
+  -o-transition: left 0.35s ease;
+  transition: left 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  left:100%;
+}
+.slide-left.in {
+    left:0;
+}
+.slide-left.out{
+    left:-100%;
+}
+.slide-right {
+  -webkit-transition: left 0.35s ease;
+  -moz-transition: left 0.35s ease;
+  -ms-transition: left 0.35s ease;
+  -o-transition: left 0.35s ease;
+  transition: left 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  left:-100%;
+}
+.slide-right.in {
+    left:0;
+}
+.slide-right.out{
+    left:100%;
+}
+
+/* Tweaks for visibility 
+.tab-pane:nth-child(1){ background: red; }
+.tab-pane:nth-child(2){ background: blue; }
+.tab-pane:nth-child(3){ background: green; }
+
+*/
