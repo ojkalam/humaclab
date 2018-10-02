@@ -130,6 +130,15 @@ $(document).ready(function () {
         $('.owl-item').not('.cloned').eq(item).find('.butn').addClass('animated zoomIn');
     });
 
+
+    //Background image
+    $( '.img-wrap' ).each( function(){
+        var img = $( this ).find( 'img' );
+        var src = img.attr( 'src' );
+        $( this ).css( 'background-image', 'url( '+ src +' )' );
+    });
+
+
     //testimonial slider
     $('.testimonial_slide').owlCarousel({
         loop:true,
@@ -154,59 +163,32 @@ $(document).ready(function () {
             }
         }
     });
-
-    //press converate slider
-        $( '.owl-carousel' ).owlCarousel({
-        items: 6,
-        nav: true,
-        dots: false,
-        mouseDrag: true,
-        responsiveClass: true,
-            responsive: {
-                0:{
-                  items: 1
-                },
-                480:{
-                  items: 3
-                },
-                769:{
-                  items: 6
-                }
-            }
-        });
-
-        //Background image
-        $( '.img-wrap' ).each( function(){
-            var img = $( this ).find( 'img' );
-            var src = img.attr( 'src' );
-            $( this ).css( 'background-image', 'url( '+ src +' )' );
-        });
-
+    //END TESTIMONIAL
 });
 
 // end slider
 
 
-// back to top js
-if ($('#back_to_top').length) {
-    var scrollTrigger = 100, // px
-        backToTop = function () {
-            var scrollTop = $(window).scrollTop();
-            if (scrollTop > scrollTrigger) {
-                $('#back_to_top').addClass('on');
-            } else {
-                $('#back_to_top').removeClass('on');
-            }
-        };
-    backToTop();
-    $(window).on('scroll', function () {
+    // back to top js
+    if ($('#back_to_top').length) {
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('#back_to_top').addClass('on');
+                } else {
+                    $('#back_to_top').removeClass('on');
+                }
+            };
         backToTop();
-    });
-    $('#back_to_top').on('click', function (e) {
-        e.preventDefault();
-        $('html,body').animate({
-            scrollTop: 0
-        }, 700);
-    });
-}
-// end back to top
+        $(window).on('scroll', function () {
+            backToTop();
+        });
+        $('#back_to_top').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
+    // end back to top
