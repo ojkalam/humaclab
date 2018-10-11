@@ -3,23 +3,24 @@
 	$('#carousel_fade_intro').carousel({
 		interval: 2500,
 		pause: "false"
-	})
+	});
 
 //make section height of window
-/*	$(function(){
-		$('#intro').css({'height':($(window).height())+'px'});
-		$(window).resize(function(){
-		$('#intro').css({'height':($(window).height())+'px'});
-		});
-	});
-*/
+	// $(function(){
+	// 	$('#intro').css({'height':($(window).height())+'px'});
+	// 	$(window).resize(function(){
+	// 	$('#intro').css({'height':($(window).height())+'px'});
+	// 	});
+	// });
+
 //custom scrollbar
 	$(document).ready(
-	function() {  
+	   function() {  
 		$("html").niceScroll();
 		}
 	);
 
+  
 //smooth scroll on page
 	$(function() {
 		$('#more a, .nav a, .nav li a, .brand, #footer li a').bind('click',function(event){
@@ -38,6 +39,18 @@
 	});
 
 	$(document).ready(function(){
+
+        // smooth scrolling of same page linking
+        var $root = $('html, body');
+
+        $('a[href^="#services_section"]').click(function () {
+            $root.animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+            }, 1000);
+
+            return false;
+        });
+        // end scrolling
 		//Disable Right Click On Images
 		$('img').bind('contextmenu', function(e) {
 			return false;
@@ -48,13 +61,18 @@
 			interval: false
 		});
 
-	$('#navbar').affix({
-		offset: {
-			top: 200
-		}
-	});	
+    	$('#navbar').affix({
+    		offset: {
+    			top: 200
+    		}
+    	});	
 
 	});
+
+    // particle js
+
+  // HEADER PARTICLES EFFECT
+
 /* product sorting */
 // isotope
 	$(document).ready(function(){
@@ -143,17 +161,20 @@ $(document).ready(function () {
     $('.testimonial_slide').owlCarousel({
         loop:true,
         autoplay:3000,
+        autoplayHoverPause: true,
         animateOut: 'zoomOut',
         animateIn: 'zoomIn',
         smartSpeed: 4000,
-        nav:false,
-
+        nav:true,
+        navText: [ '<i class="fa fa-long-arrow-left fa-lg"></i>', '<i class="fa fa-long-arrow-right fa-lg"></i>' ],
         responsive:{
             0:{
-                items:1
+                items:1,
+                nav:false
             },
             600:{
-                items:1
+                items:1,
+                nav:false
             },
             1000:{
                 items:1
@@ -164,7 +185,86 @@ $(document).ready(function () {
         }
     });
     //END TESTIMONIAL
-});
+        
+        $('.tech_slides').owlCarousel({
+            loop:true,
+            autoplay:1000,
+            nav:false,
+
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1
+                },
+                1200:{
+                    items:1
+                }
+            }
+        });
+    });        
+    
+    // Sponsors Carousel
+    if ($('.sponsors_carousel').length) {
+        $('.sponsors_carousel').owlCarousel({
+            loop:true,
+            margin:0,
+            nav:false,
+            smartSpeed: 500,
+            autoplay: 3000,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                800:{
+                    items:3
+                },
+                1024:{
+                    items:4
+                },
+                1200:{
+                    items:5
+                }
+            }
+        });         
+    }
+
+    //technology slider
+     if ($('.technology_carousel').length) {
+        $('.technology_carousel').owlCarousel({
+            loop:true,
+            margin:0,
+            smartSpeed: 500,
+            autoplay: 1000,
+            nav:true,
+            navText: [ '<i class="fa fa-long-arrow-left fa-lg"></i>', '<i class="fa fa-long-arrow-right fa-lg"></i>' ],
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2,
+                    nav:false
+                },
+                800:{
+                    items:4
+                },
+                1024:{
+                    items:4
+                },
+                1200:{
+                    items:5
+                }
+            }
+        });         
+    }
 
 // end slider
 
